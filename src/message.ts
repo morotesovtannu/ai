@@ -79,7 +79,7 @@ export default class Message {
 	}) {
 		if (text == null) return;
 
-		this.ai.log(`>>> Sending reply to ${chalk.underline(this.id)}`);
+		this.ai.log(`>>> Отправляю ответ в ${chalk.underline(this.id)}`);
 
 		if (!opts?.immediate) {
 			await delay(2000);

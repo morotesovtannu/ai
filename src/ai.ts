@@ -87,7 +87,7 @@ export default class 藍 {
 		}
 		const file = process.env.NODE_ENV === 'test' ? `${memoryDir}/test.memory.json` : `${memoryDir}/memory.json`;
 
-		this.log(`Lodaing the memory from ${file}...`);
+		this.log(`Загрузка памяти из ${file}...`);
 
 		this.db = new loki(file, {
 			autoload: true,
@@ -95,9 +95,9 @@ export default class 藍 {
 			autosaveInterval: 1000,
 			autoloadCallback: err => {
 				if (err) {
-					this.log(chalk.red(`Failed to load the memory: ${err}`));
+					this.log(chalk.red(`Не удалось загрузить память: ${err}`));
 				} else {
-					this.log(chalk.green('The memory loaded successfully'));
+					this.log(chalk.green('Память загрузилась успешно!'));
 					this.run();
 				}
 			}
@@ -185,7 +185,7 @@ export default class 藍 {
 
 		// Install modules
 		this.modules.forEach(m => {
-			this.log(`Installing ${chalk.cyan.italic(m.name)}\tmodule...`);
+			this.log(`Установка модуля ${chalk.cyan.italic(m.name)}\t...`);
 			m.init(this);
 			const res = m.install();
 			if (res != null) {
@@ -201,7 +201,7 @@ export default class 藍 {
 
 		setInterval(this.logWaking, 10000);
 
-		this.log(chalk.green.bold('Ai am now running!'));
+		this.log(chalk.green.bold('Аи бежит СЕЙЧАС!'));
 	}
 
 	/**
@@ -210,7 +210,7 @@ export default class 藍 {
 	 */
 	@autobind
 	private async onReceiveMessage(msg: Message): Promise<void> {
-		this.log(chalk.gray(`<<< An message received: ${chalk.underline(msg.id)}`));
+		this.log(chalk.gray(`<<< Получено сообщение: ${chalk.underline(msg.id)}`));
 
 		// Ignore message if the user is a bot
 		// To avoid infinity reply loop.
@@ -308,7 +308,7 @@ export default class 藍 {
 		for (const timer of timers) {
 			// タイマーが時間切れかどうか
 			if (Date.now() - (timer.insertedAt + timer.delay) >= 0) {
-				this.log(`Timer expired: ${timer.module} ${timer.id}`);
+				this.log(`Таймер истек: ${timer.module} ${timer.id}`);
 				this.timers.remove(timer);
 				this.timeoutCallbacks[timer.module](timer.data);
 			}
@@ -457,7 +457,7 @@ export default class 藍 {
 			data: data
 		});
 
-		this.log(`Timer persisted: ${module.name} ${id} ${delay}ms`);
+		this.log(`Таймер сохраняется: ${module.name} ${id} ${delay}ms`);
 	}
 
 	@autobind

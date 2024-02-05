@@ -1,8 +1,19 @@
 <h1><p align="center"><img src="./ai.svg" alt="藍" height="200"></p></h1>
-<p align="center">An Ai for Misskey. <a href="./torisetu.md">About Ai</a></p>
+<p align="center">An Ai for Etonern. <a href="./torisetu.md">About Ai</a></p>
 
 ## これなに
-Misskey用の日本語Botです。
+Misskey用の日本語Bot、「藍」の[えとねるん](https://msk.ilnk.info)用の改造版です。
+
+## 変更点
+* 起動時のメッセージなどがロシア語になっています。
+* 勝手に処理を追加しているかも？
+* 各種セリフ。追加してあったり削ってあったりします。
+* 投票の選択肢など。
+
+## インストールする前に
+この藍は[えとねるん](https://msk.ilnk.info)用の改造版の為、他のサーバーには適さない可能性があります。
+
+他のサーバーで使用する場合には[バニラの藍](https://github.com/syuilo/ai)をお勧めします。
 
 ## インストール
 > Node.js と npm と MeCab (オプション) がインストールされている必要があります。

@@ -53,7 +53,7 @@ export default class Friend {
 				});
 
 				if (inserted == null) {
-					throw new Error('Failed to insert friend doc');
+					throw new Error('Не удалось вставить документ друга.');
 				}
 
 				this.doc = inserted;
@@ -65,7 +65,7 @@ export default class Friend {
 		} else if (opts.doc) {
 			this.doc = opts.doc;
 		} else {
-			throw new Error('No friend info specified');
+			throw new Error('Информация о друге не указана.');
 		}
 	}
 

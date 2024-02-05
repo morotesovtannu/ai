@@ -48,7 +48,7 @@ function log(msg: string): void {
 log(chalk.bold(`Ai v${pkg._v}`));
 
 promiseRetry(retry => {
-	log(`Account fetching... ${chalk.gray(config.host)}`);
+	log(`Получение аккаунта... ${chalk.gray(config.host)}`);
 
 	// アカウントをフェッチ
 	return request.post(`${config.apiUrl}/i`, {
@@ -60,9 +60,9 @@ promiseRetry(retry => {
 	retries: 3
 }).then(account => {
 	const acct = `@${account.username}`;
-	log(chalk.green(`Account fetched successfully: ${chalk.underline(acct)}`));
+	log(chalk.green(`Аккаунт получен успешно: ${chalk.underline(acct)}`));
 
-	log('Starting AiOS...');
+	log('Запуск AiOS...');
 
 	// 藍起動
 	new 藍(account, [
@@ -92,5 +92,5 @@ promiseRetry(retry => {
 		new CheckCustomEmojisModule(),
 	]);
 }).catch(e => {
-	log(chalk.red('Failed to fetch the account'));
+	log(chalk.red('Не удалось получить аккаунт.'));
 });
